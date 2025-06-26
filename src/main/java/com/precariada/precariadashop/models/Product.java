@@ -1,6 +1,7 @@
 package com.precariada.precariadashop.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
 @Entity
 @Table(name = "products")
@@ -12,19 +13,16 @@ public class Product {
     private double price;
     private String imageUrl;
     private boolean featured;
-    private double rating;
     // private Category category;
 
     public Product() {
     }
 
-    public Product(Long id, String name, double price, String imageUrl, boolean featured, double rating) {
-        this.id = id;
+    public Product(String name, double price, String imageUrl, boolean featured) {
         this.name = name;
         this.price = price;
         this.imageUrl = imageUrl;
         this.featured = featured;
-        this.rating = rating;
     }
 
     public Long getId() {
@@ -61,13 +59,5 @@ public class Product {
 
     public void setFeatured(boolean featured) {
         this.featured = featured;
-    }
-
-    public double getRating() {
-        return rating;
-    }
-
-    public void setRating(double rating) {
-        this.rating = rating;
     }
 }
