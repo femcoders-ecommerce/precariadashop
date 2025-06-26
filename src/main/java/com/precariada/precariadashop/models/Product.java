@@ -1,7 +1,6 @@
 package com.precariada.precariadashop.models;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
 
 @Entity
 @Table(name = "products")
