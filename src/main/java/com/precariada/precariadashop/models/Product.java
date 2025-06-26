@@ -12,7 +12,6 @@ public class Product {
     private double price;
     private String imageUrl;
     private boolean featured;
-    private double rating;
     // private Category category;
 
     public Product() {
@@ -24,7 +23,6 @@ public class Product {
         this.price = price;
         this.imageUrl = imageUrl;
         this.featured = featured;
-        this.rating = rating;
     }
 
     public Long getId() {
@@ -61,13 +59,5 @@ public class Product {
 
     public void setFeatured(boolean featured) {
         this.featured = featured;
-    }
-
-    public double getRating() {
-        return rating;
-    }
-
-    public void setRating(double rating) {
-        this.rating = rating;
     }
 }
