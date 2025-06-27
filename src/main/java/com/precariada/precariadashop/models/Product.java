@@ -10,6 +10,8 @@ public class Product {
     private Long id;
     private String name;
     private double price;
+
+    @Column(name = "image_url")
     private String imageUrl;
     private boolean featured;
     // private Category category;
