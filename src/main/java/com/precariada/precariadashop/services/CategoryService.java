@@ -37,4 +37,12 @@ public class CategoryService {
         Category saved = categoryRepository.save(existing);
         return CategoryMapper.entityToDto(saved);
     }
+
+    public CategoryResponse deleteCategory(Long id){
+        Category category = categoryRepository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("Category with ID" + id + "was not found"));
+        CategoryResponse deletedCategory = CategoryMapper.entityToDto(category);
+        categoryRepository.deleteById(id);
+        return deletedCategory;
+    }
 }
