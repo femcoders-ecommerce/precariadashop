@@ -28,6 +28,12 @@ public class ProductController {
     @PostMapping
     public ResponseEntity<ProductResponse> addProduct(@Valid @RequestBody ProductRequest productRequest) {
         ProductResponse productResponse = productService.addProduct(productRequest);
-        return ResponseEntity .status(HttpStatus.CREATED).body(productResponse);
+        return ResponseEntity.status(HttpStatus.CREATED).body(productResponse);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
+        productService.deleteProduct(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

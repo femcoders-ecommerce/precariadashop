@@ -27,4 +27,8 @@ public class ProductService {
         Product savedProduct = productRepository.save(newProduct);
         return ProductMapper.entityToDto(savedProduct);
     }
+
+    public void deleteProduct(Long id) {
+        productRepository.deleteById(id);
+    }
 }
