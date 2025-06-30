@@ -1,11 +1,12 @@
 package com.precariada.precariadashop.controllers;
 
+import com.precariada.precariadashop.dtos.category.CategoryRequest;
 import com.precariada.precariadashop.dtos.category.CategoryResponse;
 import com.precariada.precariadashop.services.CategoryService;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,8 +20,14 @@ public class CategoryController {
     }
 
     @GetMapping
-    public ResponseEntity<List<CategoryResponse>> getAllProducts(){
+    public ResponseEntity<List<CategoryResponse>> getAllCategory(){
         List<CategoryResponse> categories = categoryService.getAllCategories();
         return ResponseEntity.ok(categories);
+    }
+
+    @PostMapping
+    public ResponseEntity<CategoryResponse> addCategory(@RequestBody @Valid CategoryRequest newCategory){
+        CategoryResponse createdCategory = categoryService.addCategory(newCategory);
+        return new ResponseEntity<>(createdCategory, HttpStatus.CREATED);
     }
 }
