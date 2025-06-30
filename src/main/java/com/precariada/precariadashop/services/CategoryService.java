@@ -8,6 +8,7 @@ import com.precariada.precariadashop.repositories.CategoryRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class CategoryService {
@@ -26,5 +27,14 @@ public class CategoryService {
         Category newCategory = CategoryMapper.dtoToEntity(categoryRequest);
         Category savedCategory = categoryRepository.save(newCategory);
         return CategoryMapper.entityToDto(savedCategory);
+    }
+
+    public CategoryResponse updateCategory(Long id, CategoryRequest updateCategory){
+        Category existing = categoryRepository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("Category with ID" + id + "was not found"));
+        existing.setName(updateCategory.name());
+
+        Category saved = categoryRepository.save(existing);
+        return CategoryMapper.entityToDto(saved);
     }
 }
