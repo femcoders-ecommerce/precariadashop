@@ -34,4 +34,9 @@ public class UserService {
         User savedUser = userRepository.save(newUser);
         return UserMapper.entityToDto(savedUser);
     }
+
+    public void deleteUser(Long id) {
+        getUserById(id);
+        userRepository.deleteById(id);
+    }
 }

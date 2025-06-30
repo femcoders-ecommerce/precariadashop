@@ -35,4 +35,10 @@ public class UserController {
     public ResponseEntity<UserResponse> addUser(@Valid @RequestBody UserRequest userRequest) {
         return new ResponseEntity<>(userService.addUser(userRequest), HttpStatus.CREATED);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
+        userService.deleteUser(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }
