@@ -24,6 +24,11 @@ public class ProductService {
         return products.stream().map(product -> ProductMapper.entityToDto(product)).toList();
     }
 
+    public ProductResponse getProductById(Long id) {
+        Product product = productRepository.findById(id).orElseThrow();
+        return ProductMapper.entityToDto(product);
+    }
+
     public ProductResponse addProduct(ProductRequest productRequest) {
         Product newProduct = ProductMapper.dtoToEntity(productRequest);
         Product savedProduct = productRepository.save(newProduct);
