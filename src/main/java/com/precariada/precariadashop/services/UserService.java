@@ -1,6 +1,8 @@
 package com.precariada.precariadashop.services;
 
+import com.precariada.precariadashop.dtos.product.ProductMapper;
 import com.precariada.precariadashop.dtos.users.UserMapper;
+import com.precariada.precariadashop.dtos.users.UserRequest;
 import com.precariada.precariadashop.dtos.users.UserResponse;
 import com.precariada.precariadashop.models.User;
 import com.precariada.precariadashop.repositories.UserRepository;
@@ -25,5 +27,11 @@ public class UserService {
     public UserResponse getUserById(Long id) {
         User user = userRepository.findById(id).orElseThrow(() -> new NoSuchElementException("User not found with id " + id));
         return UserMapper.entityToDto(user);
+    }
+
+    public UserResponse addUser(UserRequest userRequest) {
+        User newUser = UserMapper.dtoToEntity(userRequest);
+        User savedUser = userRepository.save(newUser);
+        return UserMapper.entityToDto(savedUser);
     }
 }

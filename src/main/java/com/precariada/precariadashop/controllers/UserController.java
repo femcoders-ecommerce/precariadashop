@@ -3,11 +3,10 @@ package com.precariada.precariadashop.controllers;
 import com.precariada.precariadashop.dtos.users.UserRequest;
 import com.precariada.precariadashop.dtos.users.UserResponse;
 import com.precariada.precariadashop.services.UserService;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,5 +29,10 @@ public class UserController {
     public ResponseEntity<UserResponse> getUserById(@PathVariable Long id) {
         UserResponse userResponse = userService.getUserById(id);
         return ResponseEntity.ok(userResponse);
+    }
+
+    @PostMapping
+    public ResponseEntity<UserResponse> addUser(@Valid @RequestBody UserRequest userRequest) {
+        return new ResponseEntity<>(userService.addUser(userRequest), HttpStatus.CREATED);
     }
 }
