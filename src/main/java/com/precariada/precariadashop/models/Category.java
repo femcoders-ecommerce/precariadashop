@@ -19,9 +19,13 @@ public class Category {
     public Category() {
     }
 
-    public Category(Long id, String name) {
-        this.id = id;
+    public Category(String name) {
         this.name = name;
+    }
+
+    public Category(String name, List<Product> products) {
+        this.name = name;
+        this.products = products;
     }
 
     public String getName() {
