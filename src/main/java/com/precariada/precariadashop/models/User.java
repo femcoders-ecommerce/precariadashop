@@ -12,6 +12,9 @@ public class User {
     private String email;
     private String password;
 
+    @OneToMany (mappedBy = "cart")
+    private Cart cart;
+
     public User() {
     }
 
@@ -48,4 +51,8 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public Cart getCart() {return cart;}
+
+    public void setCart(Cart cart) {this.cart = cart;}
 }
