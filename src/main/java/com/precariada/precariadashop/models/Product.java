@@ -14,7 +14,10 @@ public class Product {
     @Column(name = "image_url")
     private String imageUrl;
     private boolean featured;
-    // private Category category;
+
+    @ManyToOne
+    @JoinColumn (name = "category_id")
+    private Category category;
 
     public Product() {
     }
