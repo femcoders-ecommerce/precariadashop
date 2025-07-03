@@ -12,11 +12,11 @@ public class Cart {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn (name = "user_id")
-    private User user;
+    private User userId;
 
-    @OneToMany (mappedBy = "cart")
+    @OneToMany (mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CartItem> items = new ArrayList<>();
 
     @Column (name = "total_price")
@@ -25,15 +25,18 @@ public class Cart {
     public Cart() {
     }
 
-    public Cart(Long id, List<CartItem> items, User user, Double totalPrice) {
-        this.id = id;
+    public Cart(User userId, List<CartItem> items, Double totalPrice) {
+        this.userId = userId;
         this.items = items;
-        this.user = user;
         this.totalPrice = totalPrice;
     }
 
     public void clearCart(){
         items.clear();
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public Long getUserId() {
