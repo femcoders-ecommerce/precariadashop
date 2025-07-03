@@ -24,11 +24,10 @@ public class User {
     public User() {
     }
 
-    public User(String username, String email, String password, Cart cart) {
+    public User(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.cart = cart;
     }
 
     public Long getId() {

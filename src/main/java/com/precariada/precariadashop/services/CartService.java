@@ -1,10 +1,5 @@
 package com.precariada.precariadashop.services;
 
-import com.precariada.precariadashop.dtos.cart.CartMapper;
-import com.precariada.precariadashop.dtos.cart.CartRequest;
-import com.precariada.precariadashop.dtos.cart.CartResponse;
-import com.precariada.precariadashop.models.Cart;
-import com.precariada.precariadashop.models.User;
 import com.precariada.precariadashop.repositories.CartRepository;
 import com.precariada.precariadashop.repositories.UserRepository;
 import org.springframework.stereotype.Service;
@@ -19,7 +14,7 @@ public class CartService {
         this.userRepository = userRepository;
     }
 
-    public CartResponse addProductToCart (CartRequest cartRequest){
+    /*public CartResponse addProductToCart (CartRequest cartRequest){
         User user = userRepository.findById(cartRequest.userId())
                 .orElseThrow(()->new RuntimeException("User not found"));;
         Cart newCart = CartMapper.dtoToEntity(cartRequest, user);
@@ -27,5 +22,5 @@ public class CartService {
         return CartMapper.entityToDto(saveCart);
     }
 
-    public void deleteProductFromCart (Long id){cartRepository.deleteById(id);}
+    public void deleteProductFromCart (Long id){cartRepository.deleteById(id);}*/
 }

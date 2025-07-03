@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Service
 public class CartItemService {
-    private final CartItemRepository cartItemRepository;
+  /*  private final CartItemRepository cartItemRepository;
 
     public CartItemService(CartItemRepository cartItemRepository) {
         this.cartItemRepository = cartItemRepository;
@@ -18,7 +18,7 @@ public class CartItemService {
 
     public CartItem addOrIncrement(Cart cart, Product product) {
         Optional<CartItem> optionalItem = cart.getItems().stream()
-                .filter(item -> item.getProduct().getId().equals(product.getId()))
+                .filter(item -> item.getProductList().().equals(product.getId()))
                 .findFirst();
 
         if (optionalItem.isPresent()) {
@@ -31,4 +31,5 @@ public class CartItemService {
             return cartItemRepository.save(newItem);
         }
     }
+   */
 }

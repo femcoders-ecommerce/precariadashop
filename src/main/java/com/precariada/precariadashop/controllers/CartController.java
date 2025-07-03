@@ -1,7 +1,5 @@
 package com.precariada.precariadashop.controllers;
 
-import com.precariada.precariadashop.dtos.cart.CartRequest;
-import com.precariada.precariadashop.dtos.cart.CartResponse;
 import com.precariada.precariadashop.services.CartService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
