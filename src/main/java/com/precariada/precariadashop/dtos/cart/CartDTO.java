@@ -6,13 +6,13 @@ import java.util.List;
 
 public class CartDTO {
     private Long id;
-    private Long userId;
+    private Long user;
     private List<CartItemDTO> items;
     private Double totalPrice;
 
-    public CartDTO(Long id, Long userId, List<CartItemDTO> items, Double totalPrice) {
+    public CartDTO(Long id, Long user, List<CartItemDTO> items, Double totalPrice) {
         this.id = id;
-        this.userId = userId;
+        this.user = user;
         this.items = items;
         this.totalPrice = totalPrice;
     }
@@ -26,11 +26,11 @@ public class CartDTO {
     }
 
     public Long getUserId() {
-        return userId;
+        return user;
     }
 
     public void setUserId(Long userId) {
-        this.userId = userId;
+        this.user = userId;
     }
 
     public List<CartItemDTO> getItems() {

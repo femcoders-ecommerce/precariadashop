@@ -2,9 +2,11 @@ package com.precariada.precariadashop.dtos.cart;
 
 import com.precariada.precariadashop.dtos.cartItem.CartItemDTO;
 import com.precariada.precariadashop.models.Cart;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class CartMapper {
     public CartDTO entityToDto(Cart cart) {
         List<CartItemDTO> items = cart.getItems().stream()
@@ -17,7 +19,7 @@ public class CartMapper {
 
         return new CartDTO(
                 cart.getId(),
-                cart.getUserId(),
+                cart.getUser(),
                 items,
                 cart.getTotalPrice()
         );

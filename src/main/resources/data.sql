@@ -1,6 +1,6 @@
-INSERT INTO categories (name) VALUES
-('Textil'),
-('Print');
+INSERT INTO categories (id, name) VALUES
+(1, 'Textil'),
+(2, 'Print');
 
 INSERT INTO products (name, price, image_url, featured, category_id) VALUES
 ('Lámina "Titis"', 29.99, 'https://imagen.jpg', 1, 2),
