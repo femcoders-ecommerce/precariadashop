@@ -25,15 +25,18 @@ public class Cart {
     public Cart() {
     }
 
-    public Cart(Long id, List<CartItem> items, User user, Double totalPrice) {
-        this.id = id;
-        this.items = items;
+    public Cart(User user, List<CartItem> items, Double totalPrice) {
         this.user = user;
+        this.items = items;
         this.totalPrice = totalPrice;
     }
 
     public void clearCart(){
         items.clear();
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public Long getUserId() {

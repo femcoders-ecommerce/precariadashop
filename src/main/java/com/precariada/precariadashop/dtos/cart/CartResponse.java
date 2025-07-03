@@ -1,4 +1,14 @@
 package com.precariada.precariadashop.dtos.cart;
 
-public record CartResponse() {
+import com.precariada.precariadashop.models.CartItem;
+import com.precariada.precariadashop.models.User;
+
+import java.util.List;
+
+public record CartResponse(
+        Long id,
+        Long userId,
+        List<CartItem> items,
+        Double totalPrice
+) {
 }
