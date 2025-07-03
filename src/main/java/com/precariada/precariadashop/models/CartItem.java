@@ -3,7 +3,7 @@ package com.precariada.precariadashop.models;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "cart-item")
+@Table(name = "cart_item")
 public class CartItem {
 
     @Id
@@ -29,6 +29,9 @@ public class CartItem {
         this.cart = cart;
         this.product = product;
         this.quantity = quantity;
+    }
+
+    public CartItem(Cart cart, Product product, int i) {
     }
 
     public Long getId() {
