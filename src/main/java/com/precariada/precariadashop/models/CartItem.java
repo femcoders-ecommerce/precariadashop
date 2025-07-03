@@ -20,18 +20,13 @@ public class CartItem {
 
     private int quantity;
 
-
-    public CartItem(Product product, int i) {
+    public CartItem() {
     }
 
-    public CartItem(Long id, Cart cart, Product product, int quantity) {
-        this.id = id;
+    public CartItem(Cart cart, Product product, int quantity) {
         this.cart = cart;
         this.product = product;
         this.quantity = quantity;
-    }
-
-    public CartItem(Cart cart, Product product, int i) {
     }
 
     public Long getId() {

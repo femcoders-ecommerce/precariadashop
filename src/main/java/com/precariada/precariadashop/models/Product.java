@@ -8,7 +8,11 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column (nullable = false)
     private String name;
+
+    @Column (nullable = false)
     private double price;
 
     @Column(name = "image_url")
@@ -22,11 +26,12 @@ public class Product {
     public Product() {
     }
 
-    public Product(String name, double price, String imageUrl, boolean featured) {
+    public Product(String name, double price, String imageUrl, boolean featured, Category category) {
         this.name = name;
         this.price = price;
         this.imageUrl = imageUrl;
         this.featured = featured;
+        this.category = category;
     }
 
     public Long getId() {
@@ -63,5 +68,13 @@ public class Product {
 
     public void setFeatured(boolean featured) {
         this.featured = featured;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
