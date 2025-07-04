@@ -1,7 +1,10 @@
 package com.precariada.precariadashop.controllers;
 
+import com.precariada.precariadashop.dtos.category.CategoryRequest;
 import com.precariada.precariadashop.dtos.product.ProductRequest;
 import com.precariada.precariadashop.dtos.product.ProductResponse;
+import com.precariada.precariadashop.models.Category;
+import com.precariada.precariadashop.repositories.CategoryRepository;
 import com.precariada.precariadashop.services.ProductService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -13,9 +16,11 @@ import java.util.List;
 @RequestMapping("api/products")
 public class ProductController {
     private final ProductService productService;
+    private final CategoryRepository categoryRepository;
 
-    public ProductController(ProductService productService) {
+    public ProductController(ProductService productService, CategoryRepository categoryRepository) {
         this.productService = productService;
+        this.categoryRepository = categoryRepository;
     }
 
     @GetMapping

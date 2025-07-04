@@ -1,6 +1,5 @@
 package com.precariada.precariadashop.dtos.product;
 
-import com.precariada.precariadashop.models.Category;
 import jakarta.validation.constraints.*;
 
 public record ProductRequest(
@@ -18,7 +17,7 @@ public record ProductRequest(
         boolean featured,
 
         @NotBlank (message = "Category is required")
-        Category category
+        String categoryName
 ) {
 }
 

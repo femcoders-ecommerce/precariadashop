@@ -8,6 +8,6 @@ public interface UserMapper {
     }
 
     public static UserResponse entityToDto(User user) {
-        return new UserResponse(user.getUsername(), user.getEmail(), user.getPassword());
+        return new UserResponse(user.getId(), user.getUsername(), user.getEmail(), user.getPassword());
     }
 }

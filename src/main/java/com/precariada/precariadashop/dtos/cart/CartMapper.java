@@ -19,7 +19,7 @@ public class CartMapper {
 
         return new CartDTO(
                 cart.getId(),
-                cart.getUser(),
+                cart.getUser().getId(),
                 items,
                 cart.getTotalPrice()
         );
