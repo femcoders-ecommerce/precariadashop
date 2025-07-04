@@ -8,7 +8,7 @@ import java.util.List;
 
 @Component
 public class CartMapper {
-    public CartDTO entityToDto(Cart cart) {
+    public static CartDTO entityToDto(Cart cart) {
         List<CartItemDTO> items = cart.getItems().stream()
                 .map(item -> new CartItemDTO(
                         item.getProductId().getId(),

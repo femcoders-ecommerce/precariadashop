@@ -4,6 +4,7 @@ import com.precariada.precariadashop.dtos.cart.CartDTO;
 import com.precariada.precariadashop.dtos.cart.CartMapper;
 import com.precariada.precariadashop.models.Cart;
 import com.precariada.precariadashop.models.User;
+import com.precariada.precariadashop.repositories.CartItemRepository;
 import com.precariada.precariadashop.repositories.CartRepository;
 import com.precariada.precariadashop.repositories.ProductRepository;
 import com.precariada.precariadashop.repositories.UserRepository;
@@ -16,19 +17,20 @@ public class CartService {
     private final CartRepository cartRepository;
     private final UserRepository userRepository;
     private final ProductRepository productRepository;
-    private final CartMapper cartMapper;
+    private final CartItemRepository cartItemRepository;
 
-    public CartService(CartRepository cartRepository, UserRepository userRepository, ProductRepository productRepository, CartMapper cartMapper) {
+    public CartService(CartRepository cartRepository, UserRepository userRepository, ProductRepository productRepository, CartItemRepository cartItemRepository) {
         this.cartRepository = cartRepository;
         this.userRepository = userRepository;
         this.productRepository = productRepository;
-        this.cartMapper = cartMapper;
+        this.cartItemRepository = cartItemRepository;
     }
 
-    public CartDTO getCartUser(Long id) {
+
+    public CartDTO getCartByUserId(Long id) {
         User user = userRepository.findById(id).orElseThrow(() -> new NoSuchElementException("User not found with id " + id));
         Cart cart = cartRepository.findByUser(user).orElseThrow(() -> new NoSuchElementException("Cart not found"));
-        return cartMapper.entityToDto(cart);
+        return CartMapper.entityToDto(cart);
     }
 
 

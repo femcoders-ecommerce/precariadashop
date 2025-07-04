@@ -2,7 +2,6 @@ package com.precariada.precariadashop.controllers;
 
 import com.precariada.precariadashop.dtos.cart.CartDTO;
 import com.precariada.precariadashop.services.CartService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +14,7 @@ public class CartController {
 
     @GetMapping("/{userId}")
     public ResponseEntity<CartDTO> getCart(@PathVariable Long userId){
-        CartDTO cartDTO = cartService.getCartUser(userId);
+        CartDTO cartDTO = cartService.getCartByUserId(userId);
         return ResponseEntity.ok(cartDTO);
     }
 
