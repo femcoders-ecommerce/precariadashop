@@ -8,6 +8,6 @@ public record ProductResponse(
         Double price,
         String imageUrl,
         boolean featured,
-        Category category
+        String category
 ) {
 }

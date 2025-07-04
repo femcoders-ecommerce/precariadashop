@@ -5,7 +5,9 @@ import com.precariada.precariadashop.dtos.category.CategoryRequest;
 import com.precariada.precariadashop.dtos.category.CategoryResponse;
 import com.precariada.precariadashop.models.Category;
 import com.precariada.precariadashop.repositories.CategoryRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -38,11 +40,7 @@ public class CategoryService {
         return CategoryMapper.entityToDto(saved);
     }
 
-    public CategoryResponse deleteCategory(Long id){
-        Category category = categoryRepository.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("Category with ID" + id + "was not found"));
-        CategoryResponse deletedCategory = CategoryMapper.entityToDto(category);
+    public void deleteCategory(Long id){
         categoryRepository.deleteById(id);
-        return deletedCategory;
     }
 }

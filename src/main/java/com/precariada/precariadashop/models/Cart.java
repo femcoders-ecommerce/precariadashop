@@ -39,12 +39,12 @@ public class Cart {
         return id;
     }
 
-    public Long getUser() {
-        return id;
+    public User getUser() {
+        return user;
     }
 
-    public void setUser(Long id) {
-        this.id = id;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public List<CartItem> getItems() {
