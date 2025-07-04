@@ -1,5 +1,6 @@
 package com.precariada.precariadashop.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -21,6 +22,7 @@ public class Product {
 
     @ManyToOne
     @JoinColumn (name = "category_id")
+    @JsonIgnore
     private Category category;
 
     public Product() {
