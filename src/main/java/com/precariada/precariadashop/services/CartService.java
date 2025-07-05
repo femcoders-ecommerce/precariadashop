@@ -73,6 +73,16 @@ public class CartService {
         return CartMapper.entityToDto(cart);
     }
 
+    public CartDTO removeProductFromCart(Long userId, Long productId){
+        Cart cart = getOrCreateCar(userId);
+        boolean removed = cart.getItems().removeIf(item -> item.getProductId().getId().equals(productId));
 
-//    public void deleteProductFromCart (Long id){cartRepository.deleteById(id);}
+        if (!removed){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found with ID " + productId + " in cart");
+        }
+
+        updateTotalPrice(cart);
+        cartRepository.save(cart);
+        return CartMapper.entityToDto(cart);
+    }
 }
