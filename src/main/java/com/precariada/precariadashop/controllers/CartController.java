@@ -1,7 +1,9 @@
 package com.precariada.precariadashop.controllers;
 
 import com.precariada.precariadashop.dtos.cart.CartDTO;
+import com.precariada.precariadashop.models.Cart;
 import com.precariada.precariadashop.services.CartService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,10 +20,12 @@ public class CartController {
         return ResponseEntity.ok(cartDTO);
     }
 
-//    @PostMapping ("/{userId}/add/{productId}")
-//    public ResponseEntity<CartResponse> addProductToCart(@RequestBody CartRequest cartRequest) {
-//        return new ResponseEntity<>(cartService.addProductToCart(cartRequest), HttpStatus.CREATED);
-//    }
+    @PostMapping("/{userId}/add/{productId}")
+    public ResponseEntity<CartDTO> addProductToCart(@PathVariable Long userId, @PathVariable Long productId){
+        CartDTO updatedCart = cartService.addProductToCart(userId, productId);
+        return new ResponseEntity<>(updatedCart, HttpStatus.CREATED);
+    }
+
 //    @DeleteMapping ("/{userId}/remove/{productId}")
 //    public ResponseEntity<Void> deleteProductFromCart(@PathVariable Long id){
 //        cartService.deleteProductFromCart(id);
