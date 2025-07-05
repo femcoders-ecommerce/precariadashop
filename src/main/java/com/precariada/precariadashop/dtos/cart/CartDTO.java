@@ -1,9 +1,11 @@
 package com.precariada.precariadashop.dtos.cart;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.precariada.precariadashop.dtos.cartItem.CartItemDTO;
 
 import java.util.List;
 
+@JsonPropertyOrder({ "id", "userId", "items", "totalPrice" })
 public class CartDTO {
     private Long id;
     private Long user;

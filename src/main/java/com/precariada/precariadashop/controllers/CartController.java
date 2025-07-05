@@ -1,6 +1,7 @@
 package com.precariada.precariadashop.controllers;
 
 import com.precariada.precariadashop.dtos.cart.CartDTO;
+import com.precariada.precariadashop.models.Cart;
 import com.precariada.precariadashop.services.CartService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,17 +16,19 @@ public class CartController {
 
     @GetMapping("/{userId}")
     public ResponseEntity<CartDTO> getCart(@PathVariable Long userId){
-        CartDTO cartDTO = cartService.getCartUser(userId);
+        CartDTO cartDTO = cartService.getCartByUserId(userId);
         return ResponseEntity.ok(cartDTO);
     }
 
-//    @PostMapping ("/{userId}/add/{productId}")
-//    public ResponseEntity<CartResponse> addProductToCart(@RequestBody CartRequest cartRequest) {
-//        return new ResponseEntity<>(cartService.addProductToCart(cartRequest), HttpStatus.CREATED);
-//    }
-//    @DeleteMapping ("/{userId}/remove/{productId}")
-//    public ResponseEntity<Void> deleteProductFromCart(@PathVariable Long id){
-//        cartService.deleteProductFromCart(id);
-//        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//    }
+    @PostMapping("/{userId}/add/{productId}")
+    public ResponseEntity<CartDTO> addProductToCart(@PathVariable Long userId, @PathVariable Long productId){
+        CartDTO updatedCart = cartService.addProductToCart(userId, productId);
+        return new ResponseEntity<>(updatedCart, HttpStatus.CREATED);
+    }
+
+    @DeleteMapping("/{userId}/remove/{productId}")
+    public ResponseEntity<CartDTO> removeProductFromCart(@PathVariable Long userId, @PathVariable Long productId){
+        CartDTO updatedCart = cartService.removeProductFromCart(userId, productId);
+        return ResponseEntity.ok(updatedCart);
+    }
 }
