@@ -7,12 +7,20 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/cart")
 public class CartController {
     private CartService cartService;
 
     public CartController(CartService cartService){this.cartService = cartService;}
+
+    @GetMapping
+    public ResponseEntity<List<CartDTO>> getAllCarts(){
+        List<CartDTO> carts = cartService.getAllCarts();
+        return ResponseEntity.ok (carts);
+    }
 
     @GetMapping("/{userId}")
     public ResponseEntity<CartDTO> getCart(@PathVariable Long userId){
