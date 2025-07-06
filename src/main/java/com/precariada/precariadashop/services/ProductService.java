@@ -1,6 +1,5 @@
 package com.precariada.precariadashop.services;
 
-import com.precariada.precariadashop.dtos.category.CategoryRequest;
 import com.precariada.precariadashop.dtos.product.ProductMapper;
 import com.precariada.precariadashop.dtos.product.ProductRequest;
 import com.precariada.precariadashop.dtos.product.ProductResponse;
