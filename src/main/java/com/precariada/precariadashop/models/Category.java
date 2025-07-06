@@ -1,5 +1,6 @@
 package com.precariada.precariadashop.models;
 
+import com.precariada.precariadashop.dtos.product.ProductResponse;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
