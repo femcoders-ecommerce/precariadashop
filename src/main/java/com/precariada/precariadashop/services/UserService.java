@@ -1,6 +1,5 @@
 package com.precariada.precariadashop.services;
 
-import com.precariada.precariadashop.dtos.product.ProductMapper;
 import com.precariada.precariadashop.dtos.users.UserMapper;
 import com.precariada.precariadashop.dtos.users.UserRequest;
 import com.precariada.precariadashop.dtos.users.UserResponse;
