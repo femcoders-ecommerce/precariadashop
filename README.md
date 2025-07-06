@@ -122,7 +122,7 @@ com.precariada.precariadashop
 ```
 ### Entity Relationship (ER) Diagram
 
-![ER Diagram](img.png)
+![ER Diagram](docs/images/img.png)
 
 ###  Flow Chart
 [Click to access the Flow Chart](https://postimg.cc/XG8dq3QL)
