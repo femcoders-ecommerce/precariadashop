@@ -30,7 +30,7 @@ public class ProductService {
     }
 
     public ProductResponse getProductById(Long id) {
-        Product product = productRepository.findById(id).orElseThrow();
+        Product product = productRepository.findById(id).orElseThrow(() -> new NoSuchElementException("Product not found with id " + id));
         return ProductMapper.entityToDto(product);
     }
 
