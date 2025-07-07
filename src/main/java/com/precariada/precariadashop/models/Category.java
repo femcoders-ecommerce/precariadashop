@@ -1,7 +1,6 @@
 package com.precariada.precariadashop.models;
 
 import jakarta.persistence.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,19 +10,20 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false, unique = true)
     private String name;
 
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "category")
     private List<Product> products = new ArrayList<>();
 
     public Category() {
     }
 
-    public Category(String name) {
-        this.name = name;
-    }
+   public Category(String name) {this.name = name;}
 
-    public Category(String name, List<Product> products) {
+    public Category(Long id, String name, List<Product> products) {
+        this.id = id;
         this.name = name;
         this.products = products;
     }
@@ -43,4 +43,10 @@ public class Category {
     public List<Product> getProducts() {
         return products;
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setProducts(List<Product> products) {this.products = products;}
 }

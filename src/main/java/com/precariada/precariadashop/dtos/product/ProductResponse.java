@@ -5,7 +5,7 @@ public record ProductResponse(
         String name,
         Double price,
         String imageUrl,
-        boolean featured
-        /* private Category category*/
+        boolean featured,
+        String category
 ) {
 }

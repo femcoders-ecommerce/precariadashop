@@ -11,14 +11,12 @@ public record ProductRequest(
         @Min(value = 0, message= "Price must be greater than 0")
         Double price,
 
-        @Pattern(regexp = "^(https?://.*\\.(png|jpg|jpeg|gif|svg))$", message = "Invalid content type")
+        @Pattern(message = "Invalid content type", regexp = "^(https?://.*\\.(png|jpg|jpeg|gif|svg))$")
         String imageUrl,
 
-        boolean featured
+        boolean featured,
 
-        /* private Category category*/
+        @NotBlank (message = "Category is required")
+        String categoryName
 ) {
 }
-
-
-
