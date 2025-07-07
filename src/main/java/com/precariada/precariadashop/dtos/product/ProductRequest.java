@@ -20,6 +20,3 @@ public record ProductRequest(
         String categoryName
 ) {
 }
-
-
-

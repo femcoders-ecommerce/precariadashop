@@ -6,7 +6,6 @@ import com.precariada.precariadashop.dtos.users.UserResponse;
 import com.precariada.precariadashop.models.User;
 import com.precariada.precariadashop.repositories.UserRepository;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.NoSuchElementException;
 

@@ -1,4 +1,4 @@
-package com.precariada.precariadashop.product;
+package com.precariada.precariadashop.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.precariada.precariadashop.dtos.product.ProductRequest;

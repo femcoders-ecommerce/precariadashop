@@ -1,4 +1,4 @@
-package com.precariada.precariadashop.user;
+package com.precariada.precariadashop.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.precariada.precariadashop.dtos.users.UserResponse;
@@ -17,13 +17,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import com.precariada.precariadashop.dtos.users.UserRequest;
 import org.mockito.Mockito;
-
-
-
-
 import java.util.ArrayList;
 import java.util.List;
-
 import static org.mockito.BDDMockito.given;
 
 @SpringBootTest
@@ -114,6 +109,7 @@ public class UserControllerTest {
                 .andExpect(jsonPath("$.username").value(updatedUser.username()))
                 .andExpect(jsonPath("$.email").value(updatedUser.email()));
     }
+
     @Test
     void shouldDeleteUser() throws Exception {
         Mockito.doNothing().when(userService).deleteUser(1L);

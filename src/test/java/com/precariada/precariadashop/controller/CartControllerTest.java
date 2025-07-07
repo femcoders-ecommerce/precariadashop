@@ -1,4 +1,4 @@
-package com.precariada.precariadashop.cart;
+package com.precariada.precariadashop.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.precariada.precariadashop.dtos.cart.CartDTO;
@@ -11,9 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
-
 import java.util.Collections;
-
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;

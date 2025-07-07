@@ -13,7 +13,6 @@ import com.precariada.precariadashop.repositories.UserRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -31,7 +30,6 @@ public class CartService {
         this.productRepository = productRepository;
         this.cartItemRepository = cartItemRepository;
     }
-
 
     public CartDTO getCartByUserId(Long id) {
         User user = userRepository.findById(id).orElseThrow(() -> new NoSuchElementException("User not found with id " + id));

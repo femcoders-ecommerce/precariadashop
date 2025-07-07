@@ -1,4 +1,4 @@
-package com.precariada.precariadashop.product;
+package com.precariada.precariadashop.service;
 
 import com.precariada.precariadashop.dtos.product.ProductRequest;
 import com.precariada.precariadashop.dtos.product.ProductResponse;

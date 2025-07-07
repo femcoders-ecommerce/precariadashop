@@ -63,6 +63,3 @@ public class Cart {
         this.totalPrice = totalPrice;
     }
 }
-
-
-

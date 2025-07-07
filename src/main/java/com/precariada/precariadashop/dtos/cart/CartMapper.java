@@ -3,7 +3,6 @@ package com.precariada.precariadashop.dtos.cart;
 import com.precariada.precariadashop.dtos.cartItem.CartItemDTO;
 import com.precariada.precariadashop.models.Cart;
 import org.springframework.stereotype.Component;
-
 import java.util.List;
 
 @Component

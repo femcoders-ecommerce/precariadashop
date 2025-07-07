@@ -2,12 +2,11 @@ package com.precariada.precariadashop.dtos.category;
 
 import com.precariada.precariadashop.dtos.product.ProductResponse;
 import com.precariada.precariadashop.models.Category;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
 public interface CategoryMapper {
-    public static Category dtoToEntity (CategoryRequest dto){
+    static Category dtoToEntity (CategoryRequest dto){
         return new Category(dto.name());
     }
     static CategoryResponse entityToDto(Category category) {
